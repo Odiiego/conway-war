@@ -1,8 +1,8 @@
 import { createContext } from "react";
 
 const PlayersContext = createContext({
-  playerA: null,
-  playerB: null,
+  playerA: {},
+  playerB: {},
 });
 
 export default PlayersContext;

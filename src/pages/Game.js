@@ -1,14 +1,14 @@
-import PlayerInfo from "../components/PlayerInfo"
+import PlayerInfo from "../components/PlayerInfo";
 import Board from "../components/Board";
 
 const Game = () => {
   return (
     <main>
-      <PlayerInfo player={"playerA"}/>
+      <PlayerInfo player={"playerA"} />
       <Board />
-      <PlayerInfo player={"playerB"}/>
+      <PlayerInfo player={"playerB"} />
     </main>
-  )
-}
+  );
+};
 
 export default Game;

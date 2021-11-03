@@ -1,29 +1,12 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import PlayersContext from "../store/players-context";
 
 const PlayBtn = () => {
-  const playersCtx = useContext(PlayersContext);
 
-  const checkContext = () => {
-    const playerA = playersCtx.playerA;
-    const playerB = playersCtx.playerB;
+  // TODO: verificar se os usuarios são válidos
+  // ou se é nescessário simular um dos jogadores
+  // usar esse link para substituir os dois botões de submit
 
-    if (
-      Object.keys(playerA).length !== 0 &&
-      Object.keys(playerB).length !== 0
-    ) {
-      return true
-    } else {
-      return false
-    }
-  };
-
-  return (
-    <Link to={checkContext ? "/game" : "#"}>
-      Play
-    </Link>
-  );
+  return <Link to={"/game"}>Play</Link>;
 };
 
 export default PlayBtn;
