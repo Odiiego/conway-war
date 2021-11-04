@@ -1,4 +1,4 @@
-import formatContributions from "../utils/formatContributions";
+import formatContributions from "../../utils/formatContributions";
 
 
 const fetchUser = async (username) => {

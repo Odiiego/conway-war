@@ -7,7 +7,7 @@ const PlayerInfo = (props) => {
 
   return (
     <div>
-      <img src={`${playerProfile.avatarUrl}`} alt="avatar" width="100" />
+      <img src={playerProfile.avatarUrl} alt="avatar" width="100" />
 
       <article>
         <h2>{playerProfile.name}</h2>

@@ -10,12 +10,8 @@ export default function App() {
       <BrowserRouter>
         <h1>Conway's Game of Life - PVP Version!</h1>
         <Switch>
-          <Route path="/" exact>
-            <Homepage />
-          </Route>
-          <Route path="/game">
-            <Game />
-          </Route>
+          <Route component={Homepage} path="/" exact></Route>
+          <Route component={Game} path="/game"></Route>
         </Switch>
       </BrowserRouter>
     </div>

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import PlayersContext from "../store/players-context";
-import fetchUser from "../api/services";
+import fetchUser from "../api/services/github";
 import "./UserInput.css";
 
 const UserInput = (props) => {
