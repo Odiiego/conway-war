@@ -5,6 +5,7 @@ import "./UserInput.css";
 
 const UserInput = (props) => {
   const playersCtx = useContext(PlayersContext);
+  const status = playersCtx.status;
 
   return (
     <div>
@@ -13,14 +14,11 @@ const UserInput = (props) => {
         name={`${props.inputName}`}
         id={`${props.inputName}`}
         required
-      />
-
-      <input
-        type="submit"
-        value="Submit"
-        onClick={async () => {
+        onChange={async () => {
           const username = document.getElementById(`${props.inputName}`).value;
-          playersCtx[`${props.inputName}`] = await fetchUser(username);
+          playersCtx[`${props.inputName}`] = await fetchUser(username).then(
+            (status[`${props.inputName}`] = true)
+          );
         }}
       />
     </div>
