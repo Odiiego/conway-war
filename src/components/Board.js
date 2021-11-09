@@ -33,12 +33,13 @@ const Board = () => {
     }
   };
 
+  let stop = false;
+
   useEffect(() => {
     let grid = new Grid(boardA, boardB, 53, 22)
     renderGrid(grid.buildGrid());
 
-    var stop = false;
-    var fpsInterval, startTime, now, then, elapsed;
+    let fpsInterval, startTime, now, then, elapsed;
 
     function startAnimating(fps) {
       fpsInterval = 1000 / fps;
@@ -65,6 +66,10 @@ const Board = () => {
     }
     startAnimating(4);
   }, []);
+
+  useEffect(() => () => {
+    stop = true;
+  })
 
   return (
     <main>

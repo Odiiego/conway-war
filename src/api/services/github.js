@@ -40,7 +40,13 @@ const fetchUser = async (username) => {
       ),
     };
   } catch (e) {
-    console.log(e);
+    return {
+      avatarUrl: "https://cdn.themis-media.com/media/global/images/library/deriv/1291/1291107.gif",
+      name: "(-(-_(-_-)_-)-)",
+      login: "Your unfinished projects",
+      bio: `Unlike your unfinished projects, "${username}" doesn't exist.`,
+      contributions: new Array(365).fill(null).map(n => n = Math.floor(Math.random() * 2))
+    };
   }
 };
 
