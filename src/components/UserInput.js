@@ -17,7 +17,7 @@ const UserInput = (props) => {
         id={`${props.inputName}`}
         className={inputClass ? "activeInput" : "inactiveInput"}
         required
-        onChange={async () => {
+        onBlur={async () => {
           const username = document.getElementById(`${props.inputName}`).value;
           playersCtx[`${props.inputName}`] = await fetchUser(username).then(
             (status[`${props.inputName}`] = true),

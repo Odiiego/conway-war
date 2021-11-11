@@ -3,11 +3,10 @@ import Cell from "../utils/Cell";
 class Grid {
   constructor(arrayA, arrayB, width, height) {
     this.grid = [];
-    this.players = [arrayA, arrayB]
+    this.players = [arrayA, arrayB];
     this.width = width;
     this.height = height;
     this.area = this.width * this.height;
-    // ADICIONAR UM SCORE QUE SOME O TEAM A E B A CADA CICLO
   }
 
   buildGrid() {
@@ -45,10 +44,6 @@ class Grid {
             ? teamCounterA++
             : teamCounterB++;
         }
-        // if (cell.x === 0 || cell.x === 21 || cell.y === 0 || cell.y === 52) {
-        //   total += 1
-        //   OU ALGUMA SOLUÇÃO MELHOR PARA O PROBLEMA DAS BORDAS
-        // }
       }
 
       switch (cell.status) {
@@ -65,17 +60,7 @@ class Grid {
       }
     });
     this.grid = nextGen;
-    return this.grid
-  }
-
-  get score() {
-    const score = { A: 0, B: 0 }
-    this.grid.filter(cell => {
-      return cell.status === 1
-    }).map(cell => {
-      return cell.team === "A" ? score.A++ : score.B++
-    })
-    return score;
+    return this.grid;
   }
 }
 

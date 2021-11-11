@@ -1,43 +1,18 @@
 import { useContext, useEffect } from "react";
+import { renderGrid } from "../utils/renderGrid";
 import PlayersContext from "../store/players-context";
 import Grid from "../utils/Grid";
 
 const Board = () => {
   const playersCtx = useContext(PlayersContext);
-  const boardA = playersCtx.playerA.contributions;
-  const boardB = playersCtx.playerB.contributions;
-
-  const renderGrid = (grid) => {
-    const canvas = document.querySelector("canvas");
-    const ctx = canvas.getContext("2d");
-    const resolution = 10;
-
-    canvas.width = 550;
-    canvas.height = 250;
-
-    for (let cell of grid) {
-      ctx.beginPath();
-      ctx.rect(
-        cell.y * resolution,
-        cell.x * resolution,
-        resolution,
-        resolution
-      );
-      ctx.fillStyle = !cell.status
-        ? "black"
-        : cell.team === "A"
-        ? "teal"
-        : "goldenrod";
-      ctx.fill();
-      ctx.stroke();
-    }
-  };
+  const gridA = playersCtx.playerA.contributions;
+  const gridB = playersCtx.playerB.contributions;
 
   let stop = false;
 
   useEffect(() => {
-    let grid = new Grid(boardA, boardB, 53, 22)
-    renderGrid(grid.buildGrid());
+    let grid = new Grid(gridA, gridB, 53, 22);
+    renderGrid(grid.buildGrid(), grid.width, grid.height);
 
     let fpsInterval, startTime, now, then, elapsed;
 
@@ -48,6 +23,7 @@ const Board = () => {
 
       animate();
     }
+
     function animate() {
       if (stop) {
         return;
@@ -60,8 +36,8 @@ const Board = () => {
 
       if (elapsed > fpsInterval) {
         then = now - (elapsed % fpsInterval);
-        
-        renderGrid(grid.updateGrid());
+
+        renderGrid(grid.updateGrid(), grid.width, grid.height);
       }
     }
     startAnimating(4);
@@ -69,7 +45,7 @@ const Board = () => {
 
   useEffect(() => () => {
     stop = true;
-  })
+  });
 
   return (
     <main>
