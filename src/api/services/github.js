@@ -1,7 +1,6 @@
 import formatContributions from "../../utils/formatContributions";
 
-
-const fetchUser = async (username) => {
+const fetchUser = async (username, team) => {
   try {
     const response = await fetch("https://api.github.com/graphql", {
       method: "POST",
@@ -36,16 +35,20 @@ const fetchUser = async (username) => {
       login: userData.login,
       bio: userData.bio,
       contributions: formatContributions(
-        userData.contributionsCollection.contributionCalendar.weeks
+        userData.contributionsCollection.contributionCalendar.weeks,
+        team
       ),
     };
   } catch (e) {
     return {
-      avatarUrl: "https://cdn.themis-media.com/media/global/images/library/deriv/1291/1291107.gif",
+      avatarUrl:
+        "https://cdn.themis-media.com/media/global/images/library/deriv/1291/1291107.gif",
       name: "(-(-_(-_-)_-)-)",
       login: "Your unfinished projects",
       bio: `Unlike your unfinished projects, "${username}" doesn't exist.`,
-      contributions: new Array(365).fill(null).map(n => n = Math.floor(Math.random() * 2))
+      contributions: new Array(365)
+        .fill(null)
+        .map((n) => (n = Math.floor(Math.random() * 2))),
     };
   }
 };

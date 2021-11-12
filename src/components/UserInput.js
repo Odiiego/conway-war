@@ -19,7 +19,7 @@ const UserInput = (props) => {
         required
         onBlur={async () => {
           const username = document.getElementById(`${props.inputName}`).value;
-          playersCtx[`${props.inputName}`] = await fetchUser(username).then(
+          playersCtx[`${props.inputName}`] = await fetchUser(username, props.inputName).then(
             (status[`${props.inputName}`] = true),
             setInputClass(true)
           );
