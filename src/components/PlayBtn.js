@@ -3,16 +3,24 @@ import { useContext, useEffect } from "react";
 import PlayersContext from "../store/players-context";
 
 const PlayBtn = () => {
-  const playersCtx = useContext(PlayersContext);
-  const status = playersCtx.status;
+  const gameContext = useContext(PlayersContext);
+  const status = gameContext.status;
 
   useEffect(() => {
     status.playerA = false;
     status.playerB = false;
-  })
+  });
+
+  useEffect(() => () => {
+    localStorage.setItem("gameContext", JSON.stringify(gameContext));
+  });
 
   return (
-    <Link to={status.playerA && status.playerB ? "/game" : "#"}>Play</Link>
+    <Link
+      to={status.playerA === true && status.playerB === true ? "/game" : "#"}
+    >
+      ►
+    </Link>
   );
 };
 
