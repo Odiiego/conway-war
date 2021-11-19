@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
+import "./PlayBtn.css";
+
 import PlayersContext from "../store/players-context";
 
 const PlayBtn = () => {
@@ -11,12 +13,16 @@ const PlayBtn = () => {
     status.playerB = false;
   });
 
-  useEffect(() => () => {
-    localStorage.setItem("gameContext", JSON.stringify(gameContext));
-  });
+  useEffect(
+    () => () => {
+      localStorage.setItem("gameContext", JSON.stringify(gameContext));
+    },
+    []
+  );
 
   return (
     <Link
+      className={"play-btn"}
       to={status.playerA === true && status.playerB === true ? "/game" : "#"}
     >
       ►

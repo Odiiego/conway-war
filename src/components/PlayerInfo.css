@@ -1,0 +1,54 @@
+.info__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.info {
+  display: grid;
+  width: 75%;
+  background-color: rgba(0, 0, 0, 0.75);
+  grid-template-areas:
+    "player-avatar player-name player-bio"
+    "player-avatar player-login player-bio";
+  grid-gap: 1rem;
+  border-radius: 0 2rem 2rem 0;
+}
+
+.info__avatar {
+  grid-area: player-avatar;
+  width: 125px;
+  border-radius: 100%;
+  margin-left: -62.5px;
+}
+
+.info__avatar--playerA {
+  border: 5px dashed teal;
+}
+
+.info__avatar--playerB {
+  border: 5px dashed goldenrod;
+}
+
+.info__name {
+  grid-area: player-name;
+  margin-top: 1rem;
+}
+
+.info__login {
+  grid-area: player-login;
+  font-family: monospace;
+  color: #757575;
+  margin-bottom: 1rem;
+}
+
+.info__bio {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  align-items: center;
+  grid-area: player-bio;
+  text-align: justify;
+}

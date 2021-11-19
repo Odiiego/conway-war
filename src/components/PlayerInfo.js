@@ -1,19 +1,22 @@
-import { useContext } from "react";
-import PlayersContext from "../store/players-context";
+import "./PlayerInfo.css";
 
 const PlayerInfo = (props) => {
-  const playersCtx = useContext(PlayersContext);
-  const playerProfile = playersCtx[`${props.player}`];
+  const gameContext = JSON.parse(localStorage.getItem("gameContext"));
+  const playerProfile = gameContext[`${props.player}`];
 
   return (
-    <div>
-      <img src={playerProfile.avatarUrl} alt="avatar" width="100" />
+    <div className={"info__container"}>
+      <section className={"info"}>
+        <img
+          className={`info__avatar info__avatar--${props.player}`}
+          src={playerProfile.avatarUrl}
+          alt="avatar"
+        />
 
-      <article>
-        <h2>{playerProfile.name}</h2>
-        <h3>{playerProfile.login}</h3>
-        <p>{playerProfile.bio}</p>
-      </article>
+        <h2 className={"info__name"}>{playerProfile.name}</h2>
+        <h3 className={"info__login"}>{playerProfile.login}</h3>
+        <p className={"info__bio"}>{playerProfile.bio}</p>
+      </section>
     </div>
   );
 };

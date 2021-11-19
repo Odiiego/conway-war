@@ -3,7 +3,7 @@ import Board from "../components/Board";
 
 const Game = () => {
   return (
-    <main>
+    <main className={"game"}>
       <PlayerInfo player={"playerA"} />
       <Board />
       <PlayerInfo player={"playerB"} />

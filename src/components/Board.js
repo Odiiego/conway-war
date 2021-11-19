@@ -1,12 +1,14 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { renderGrid } from "../utils/renderGrid";
-import PlayersContext from "../store/players-context";
+import "./Board.css";
+
 import Grid from "../utils/Grid";
 
 const Board = () => {
-  const playersCtx = useContext(PlayersContext);
-  const gridA = playersCtx.playerA.contributions;
-  const gridB = playersCtx.playerB.contributions;
+  const gameContext = JSON.parse(localStorage.getItem("gameContext"));
+
+  const gridA = gameContext.playerA.contributions;
+  const gridB = gameContext.playerB.contributions;
   let stop = true;
 
   let fpsInterval, startTime, now, then, elapsed;
@@ -40,17 +42,18 @@ const Board = () => {
 
   useEffect(() => {
     renderGrid(grid.buildGrid(), grid.width, grid.height);
+    return () => {
+      stop = true;
+    };
   }, []);
 
-  useEffect(() => () => {
-    stop = true;
-  });
-
   return (
-    <main>
-      <canvas></canvas>
-      <button onClick={startAnimating}>toggle</button>
-    </main>
+    <section className={"board"}>
+      <canvas className={"board__canvas"}></canvas>
+      <button className={"board__btn"} onClick={startAnimating}>
+        ►
+      </button>
+    </section>
   );
 };
 

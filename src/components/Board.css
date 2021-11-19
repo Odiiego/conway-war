@@ -1,0 +1,35 @@
+.board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.board__canvas {
+  padding: 2rem;
+  height: 275px;
+  background-color: black;
+  border-radius: 2rem 0 0 2rem;
+  border-right: 1px solid #757575;
+}
+
+button {
+  border: none;
+}
+
+.board__btn {
+  display: flex;
+  padding: 1.2rem;
+  border-radius: 0 2rem 2rem 0;
+  width: 2rem;
+  height: 275px;
+  background-color: black;
+  color: #757575;
+  text-transform: uppercase;
+  justify-content: center;
+  align-items: center;
+}
+
+.board__btn:hover {
+  cursor: pointer;
+}

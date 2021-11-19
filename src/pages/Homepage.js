@@ -3,7 +3,7 @@ import PlayBtn from "../components/PlayBtn";
 
 const Homepage = () => {
   return (
-    <main>
+    <main className={"homepage"}>
       <UserInput inputName={"playerA"} />
       <PlayBtn />
       <UserInput inputName={"playerB"} />
