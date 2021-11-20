@@ -14,7 +14,7 @@
     "player-avatar player-name player-bio"
     "player-avatar player-login player-bio";
   grid-gap: 1rem;
-  border-radius: 0 2rem 2rem 0;
+  border-radius: 0 2rem 2rem 2rem;
 }
 
 .info__avatar {

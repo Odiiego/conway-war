@@ -8,7 +8,8 @@ export default function App() {
   return (
     <div>
       <BrowserRouter>
-        <h1>Conway's Game of Life - PVP Version!</h1>
+        <h1>Conway's Game of Life</h1>
+        <h2>Github War</h2>
         <Switch>
           <Route component={Homepage} path="/" exact></Route>
           <Route component={Game} path="/game"></Route>
