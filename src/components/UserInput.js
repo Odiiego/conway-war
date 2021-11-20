@@ -5,8 +5,8 @@ import PlayersContext from "../store/players-context";
 import fetchUser from "../api/services/github";
 
 const UserInput = (props) => {
-  const playersCtx = useContext(PlayersContext);
-  const status = playersCtx.status;
+  const gameContext = useContext(PlayersContext);
+  const status = gameContext.status;
 
   const [inputClass, setInputClass] = useState(false);
 
@@ -21,10 +21,19 @@ const UserInput = (props) => {
         required
         onBlur={async () => {
           const username = document.getElementById(`${props.inputName}`).value;
-          playersCtx[`${props.inputName}`] = await fetchUser(
+          gameContext[`${props.inputName}`] = await fetchUser(
             username,
             props.inputName
-          ).then((status[`${props.inputName}`] = true), setInputClass(true));
+          ).then((data) => {
+            status[`${props.inputName}`] = true;
+            setInputClass(true);
+            return data;
+          }, (e) => {
+            status[`${props.inputName}`] = false;
+            setInputClass(false);
+            console.log(e)
+          });
+          localStorage.setItem("gameContext", JSON.stringify(gameContext));
         }}
       />
     </div>

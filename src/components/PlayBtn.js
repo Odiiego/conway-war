@@ -8,14 +8,12 @@ const PlayBtn = () => {
   const gameContext = useContext(PlayersContext);
   const status = gameContext.status;
 
-  useEffect(() => {
-    status.playerA = false;
-    status.playerB = false;
-  });
-
   useEffect(
     () => () => {
       localStorage.setItem("gameContext", JSON.stringify(gameContext));
+
+      status.playerA = false;
+      status.playerB = false;
     },
     []
   );

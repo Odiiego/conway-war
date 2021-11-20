@@ -20,6 +20,7 @@
 .info__avatar {
   grid-area: player-avatar;
   width: 125px;
+  height: 125px;
   border-radius: 100%;
   margin-left: -62.5px;
 }
