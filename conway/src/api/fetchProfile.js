@@ -11,8 +11,7 @@ const fetchProfile = async (username) => {
         avatar_url: res.data.avatar_url,
         profile_url: res.data.html_url,
     }
-
-    console.log(profile)
+    
     return (profile)
 }
 
