@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import fetchProfile from "../api/fetchProfile";
-import fetchContributions from "../api/fetchContributions";
 import Profile from "../components/Profile";
 import ProfileInput from "../components/ProfileInput";
 
@@ -9,8 +8,8 @@ const ProfileSection = () => {
 
     const createProfile = async (username) => {
         const playerData = await fetchProfile(username)
-        const playerContributions = await fetchContributions(username).data
-        
+        console.log(playerData)
+
         setPlayer(playerData)
     }
 
