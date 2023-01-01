@@ -8,7 +8,7 @@ const formatContributions = (arr) => {
         })
     })
 
-    contributions = contributions.slice(contributions.length - 365)
+    contributions = contributions.slice(contributions.length - 364)
 
     return contributions
 }
