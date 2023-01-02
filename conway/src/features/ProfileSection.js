@@ -8,7 +8,6 @@ const ProfileSection = () => {
 
     const createProfile = async (username) => {
         const playerData = await fetchProfile(username)
-        console.log(playerData)
 
         setPlayer(playerData)
     }
