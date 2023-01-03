@@ -7,7 +7,7 @@ const formatArray = (arr) => {
         }
         grid[i % 35].push(arr[i])
     }
-
+    
     return grid
 }
 

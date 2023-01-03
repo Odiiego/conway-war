@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import buildArray from "../utils/buildArray";
-import createNextGen from "../utils/createNextGen";
-import renderGrid from "../utils/renderGrid";
+import updateBoard from "../utils/updateBoard";
 
 const Canvas = () => {
     const canvasRef = useRef(null)
@@ -12,9 +11,11 @@ const Canvas = () => {
         canvas.width = 800;
         canvas.height = 400;
 
-        const testArray = buildArray(new Array(364).fill(1))
-        renderGrid(createNextGen(testArray), context)
-
+        let grid = buildArray()
+        
+        requestAnimationFrame(() => {
+            updateBoard(grid, context)
+        })
     }, [])
 
     return <canvas ref={canvasRef} />

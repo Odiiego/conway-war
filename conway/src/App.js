@@ -6,9 +6,9 @@ import Canvas from './features/Canvas';
 function App() {
   return (
     <div className="App">
-      <ProfileSection />
+      <ProfileSection inputId={1} />
       <Canvas />
-      <ProfileSection />
+      <ProfileSection inputId={2} />
     </div>
   );
 }

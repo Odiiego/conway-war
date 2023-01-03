@@ -1,10 +1,12 @@
-const formatContributions = (arr) => {
+const formatContributions = (arr, playerId) => {
     const year = [...arr]
     let contributions = []
 
     year.forEach((week) => {
         week.forEach((day) => {
-            contributions.push(day.contributionCount > 0 ? 1 : 0)
+            contributions.push(day.contributionCount > 0 ? 
+                { status: 1, playerId: playerId } : 
+                { status: 0, playerId: playerId })
         })
     })
 

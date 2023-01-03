@@ -3,7 +3,7 @@ import fetchProfile from "../api/fetchProfile";
 import Profile from "../components/Profile";
 import ProfileInput from "../components/ProfileInput";
 
-const ProfileSection = () => {
+const ProfileSection = (inputId) => {
     const [player, setPlayer] = useState(null)
 
     const createProfile = async (username) => {
@@ -14,7 +14,7 @@ const ProfileSection = () => {
 
     return (
         <div>
-            {player ? <Profile player={player} /> : <ProfileInput createProfile={createProfile} />}
+            {player ? <Profile player={player} /> : <ProfileInput createProfile={createProfile} inputId={inputId} />}
         </div>
     )
 }
