@@ -6,7 +6,7 @@ const buildArray = (arr1 = undefined, arr2 = undefined) => {
     const player2 = arr2 ? arr2 : new Array(364).fill({ status: 0, playerId: 3 })
 
     if (!arr1 && !arr2) {
-        const displayArr = new Array(0)
+        const displayArr = []
         for (let i = 0; i < 2450; i++) {
             displayArr.push(Math.random() < 0.5 ?
                 { status: 1, playerId: 0 } :

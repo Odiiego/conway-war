@@ -4,9 +4,7 @@ const createNextGen = (arr) => {
     for (let col = 0; col < 70; col++) {
         for (let row = 0; row < 35; row++) {
             let nCount = 0
-            let nCountTeam0 = 0
-            let nCountTeam1 = 0
-            let nCountTeam2 = 0
+            const nCountTeam = [0,0,0,0]
             let cell = arr[row][col].status
 
             for (let x = -1; x < 2; x++) {
@@ -18,14 +16,7 @@ const createNextGen = (arr) => {
                     }
                     nCount += arr[row + y][col + x].status
                     if (arr[row + y][col + x].status === 1) {
-                        if (arr[row + y][col + x].playerId === 0) {
-                            nCountTeam0++
-                        } else if (arr[row + y][col + x].playerId === 1) {
-                            nCountTeam1++
-                        } else if (arr[row + y][col + x].playerId === 2) {
-                            nCountTeam2++
-                        }
-
+                        nCountTeam[arr[row + y][col + x].playerId] += 1
                     }
                 }
             }
@@ -33,7 +24,9 @@ const createNextGen = (arr) => {
                 (cell === 1 && nCount > 3)) {
                 nextGen[row][col] = { status: 0, playerId: 3 }
             } else if (cell === 0 && nCount === 3) {
-                nextGen[row][col] = { status: 1, playerId: nCountTeam0 > nCountTeam1 ? 0 : nCountTeam1 > nCountTeam2 ? 1 : 2 }
+                nextGen[row][col] = { status: 1, playerId: 
+                    nCountTeam[0] > nCountTeam[1] ? 0 : 
+                    nCountTeam[1] > nCountTeam[2] ? 1 : 2 }
             }
         }
     }
