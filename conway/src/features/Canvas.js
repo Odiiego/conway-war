@@ -3,41 +3,53 @@ import buildArray from "../utils/buildArray";
 import updateBoard from "../utils/updateBoard";
 import testArray from "../utils/testArray";
 import renderGrid from "../utils/renderGrid";
+import createNextGen from "../utils/createNextGen";
 
 const Canvas = () => {
     const canvasRef = useRef(null)
-    const [toggle, setToggle] = useState("play")
+    const boardRef = useRef(null)
+    const contextRef = useRef(null)
+    let stop = true;
 
-    const togglePlay = (e) => {
-        e.target.className = e.target.className === "stop" ? "play" : "stop"
-        e.target.innerHTML = e.target.className === "stop" ? "=" : "►"
-        setToggle(e.target.className)
+    const animate = () => {
+        if (stop) {
+            return;
+        }
+        
+        boardRef.current = [...boardRef.current]
+
+        requestAnimationFrame(() => {
+            animate(boardRef.current, contextRef.current)
+        });
+
+        renderGrid(boardRef.current, contextRef.current)
+        boardRef.current = createNextGen(boardRef.current)
     }
+
+    const startAnimating = () => {
+        stop = !stop;
+
+        animate(boardRef.current, contextRef.current);
+    };
 
     useEffect(() => {
         const canvas = canvasRef.current
-        const context = canvas.getContext('2d')
+        contextRef.current = canvas.getContext('2d')
         canvas.width = 700;
         canvas.height = 350;
-        let grid = buildArray(testArray(1), testArray(2))
+        boardRef.current = buildArray(testArray(1), testArray(2))
 
-        renderGrid(grid, context)
+        renderGrid(boardRef.current, contextRef.current)
 
-        if (toggle === "stop") {
-            requestAnimationFrame(() => {
-                updateBoard(grid, context)
-            })
-        } else {
-            cancelAnimationFrame(() => {
-                updateBoard(grid, context)
-            })
-        }
-    }, [toggle])
+
+        // updateBoard(grid, context)
+        animate(boardRef.current, contextRef.current)
+    }, [])
 
     return (
         <main>
             <canvas ref={canvasRef} />
-            <button className="play" onClick={ togglePlay }>►</button>
+            <button className="play" onClick={startAnimating}>►</button>
         </main>
     )
 }
