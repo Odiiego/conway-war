@@ -1,6 +1,5 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import buildArray from "../utils/buildArray";
-import updateBoard from "../utils/updateBoard";
 import testArray from "../utils/testArray";
 import renderGrid from "../utils/renderGrid";
 import createNextGen from "../utils/createNextGen";
@@ -11,19 +10,19 @@ const Canvas = () => {
     const contextRef = useRef(null)
     let stop = true;
 
-    const animate = () => {
+    const animate = (arr, ctx) => {
         if (stop) {
             return;
         }
         
-        boardRef.current = [...boardRef.current]
+        let board = [... arr]
 
         requestAnimationFrame(() => {
-            animate(boardRef.current, contextRef.current)
+            animate(board, ctx)
         });
 
-        renderGrid(boardRef.current, contextRef.current)
-        boardRef.current = createNextGen(boardRef.current)
+        renderGrid(board, ctx)
+        board = createNextGen(board)
     }
 
     const startAnimating = () => {
@@ -40,10 +39,6 @@ const Canvas = () => {
         boardRef.current = buildArray(testArray(1), testArray(2))
 
         renderGrid(boardRef.current, contextRef.current)
-
-
-        // updateBoard(grid, context)
-        animate(boardRef.current, contextRef.current)
     }, [])
 
     return (
