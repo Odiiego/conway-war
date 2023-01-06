@@ -4,31 +4,31 @@ import testArray from "../utils/testArray";
 import renderGrid from "../utils/renderGrid";
 import createNextGen from "../utils/createNextGen";
 
-const Canvas = () => {
+const Canvas = (players) => {
     const canvasRef = useRef(null)
     const boardRef = useRef(null)
     const contextRef = useRef(null)
+    const playerData = players.players
+    console.log(players.players)
     let stop = true;
 
-    const animate = (arr, ctx) => {
+    const animate = () => {
         if (stop) {
             return;
         }
-        
-        let board = [... arr]
 
         requestAnimationFrame(() => {
-            animate(board, ctx)
+            animate(boardRef.current, contextRef.current)
         });
 
-        renderGrid(board, ctx)
-        board = createNextGen(board)
+        renderGrid(boardRef.current, contextRef.current)
+        boardRef.current = createNextGen(boardRef.current)
     }
 
     const startAnimating = () => {
         stop = !stop;
 
-        animate(boardRef.current, contextRef.current);
+        animate();
     };
 
     useEffect(() => {
@@ -36,10 +36,16 @@ const Canvas = () => {
         contextRef.current = canvas.getContext('2d')
         canvas.width = 700;
         canvas.height = 350;
-        boardRef.current = buildArray(testArray(1), testArray(2))
+        boardRef.current = buildArray(playerData.playerOne, playerData.playerTwo)
+
 
         renderGrid(boardRef.current, contextRef.current)
-    }, [])
+        return (() => {
+            renderGrid(boardRef.current, contextRef.current)
+        })
+
+
+    }, [playerData.playerOne, playerData.playerTwo])
 
     return (
         <main>
