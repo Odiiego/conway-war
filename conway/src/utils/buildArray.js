@@ -1,9 +1,9 @@
 import formatArray from "./formatArray"
 
-const buildArray = (arr1 = undefined, arr2 = undefined) => {
+const buildArray = (arr1 = null, arr2 = null) => {
     const arr = new Array(2450).fill({ status: 0, playerId: 3 })
-    const player1 = !arr1 ? arr1 : new Array(364).fill({ status: 0, playerId: 3 })
-    const player2 = arr2 ? arr2 : new Array(364).fill({ status: 0, playerId: 3 })
+    const player1 = arr1 === null ? new Array(364).fill({ status: 0, playerId: 3 }) : arr1
+    const player2 = arr2 === null ? new Array(364).fill({ status: 0, playerId: 3 }) : arr2
 
     if (!arr1 && !arr2) {
         const displayArr = []

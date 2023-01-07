@@ -6,16 +6,22 @@ import ProfileInput from "../components/ProfileInput";
 const ProfileSection = (props) => {
     const [player, setPlayer] = useState(null)
     const createProfile = async (username) => {
-        const playerData = await fetchProfile(username)
+        const playerData = await fetchProfile(username, props.inputId)
 
         setPlayer(playerData)
         props.getPlayerData(props.inputId, playerData.contributions)
     }
 
+    const resetUser = () => {
+        setPlayer(null)
+        props.getPlayerData(props.inputId, null)
+    }
+
     return (
-        <div>
+        <section>
             {player ? <Profile player={player} /> : <ProfileInput createProfile={createProfile} inputId={props.inputId} />}
-        </div>
+            <button className={player ? "active" : "inactive"} onClick={resetUser}>X</button>
+        </section>
     )
 }
 
