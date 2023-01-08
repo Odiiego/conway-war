@@ -1,14 +1,19 @@
 import React, { useRef, useEffect, useState } from "react";
+import { IoMdPause, IoMdPlay } from "react-icons/io"
+
 import buildArray from "../utils/buildArray";
 import renderGrid from "../utils/renderGrid";
 import createNextGen from "../utils/createNextGen";
 
 const Canvas = (players) => {
     const [isPaused, setIsPaused] = useState(true)
+    const [start, setStart] = useState(null)
+
     const canvasRef = useRef(null)
     const boardRef = useRef(null)
     const stopRef = useRef(true)
     const contextRef = useRef(null)
+
     const playerData = players.players
 
     const animate = () => {
@@ -31,28 +36,43 @@ const Canvas = (players) => {
         animate();
     };
 
+    const resetBoard = () => {
+        boardRef.current = start
+        stopRef.current = true
+        renderGrid(boardRef.current, contextRef.current)
+    }
+
+    const handleClick = (e) => {
+        if (e.button === 0) {
+            startAnimating()
+        } else if (e.button === 2) {
+            resetBoard()
+        }
+    }
+
     useEffect(() => {
         stopRef.current = true;
+        setIsPaused(stopRef.current)
+
         const canvas = canvasRef.current
+        const board = buildArray(playerData.playerOne, playerData.playerTwo)
+        boardRef.current = board
+        setStart(board)
+
         contextRef.current = canvas.getContext('2d')
         canvas.width = 700;
         canvas.height = 350;
-        boardRef.current = buildArray(playerData.playerOne, playerData.playerTwo)
-        console.log(stopRef.current)
-
+        canvas.oncontextmenu = function (e) { e.preventDefault(); e.stopPropagation(); }
 
         renderGrid(boardRef.current, contextRef.current)
-        return (() => {
-            renderGrid(boardRef.current, contextRef.current)
-        })
-
-
     }, [playerData])
 
     return (
         <main>
-            <canvas ref={canvasRef} />
-            <button className={isPaused ? "play" : "pause"} onClick={startAnimating} >{isPaused ? "►" : "="}</button>
+            <div className={isPaused ? "play" : "pause"} oncontextmenu={() => false} onMouseDown={handleClick}>
+                {isPaused ? <IoMdPlay /> : <IoMdPause />}
+                <canvas ref={canvasRef} oncontextmenu={() => false} />
+            </div>
         </main>
     )
 }

@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { GoMarkGithub } from "react-icons/go";
 
 const ProfileInput = ({ createProfile }) => {
     const username = useRef()
@@ -11,7 +12,7 @@ const ProfileInput = ({ createProfile }) => {
     return (
         <form className="form" onSubmit={handleCreateProfile}>
             <input className="form__input" type="text" name="ProfileInput" ref={username} required />
-            <input className="form__submit" type="submit" value="submit" />
+            <button type="submit"><GoMarkGithub /></button>
         </form>
     )
 }

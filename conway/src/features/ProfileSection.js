@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { IoMdClose } from "react-icons/io"
 import fetchProfile from "../api/fetchProfile";
 import Profile from "../components/Profile";
 import ProfileInput from "../components/ProfileInput";
@@ -20,7 +21,7 @@ const ProfileSection = (props) => {
     return (
         <section>
             {player ? <Profile player={player} /> : <ProfileInput createProfile={createProfile} inputId={props.inputId} />}
-            <button className={player ? "active" : "inactive"} onClick={resetUser}>X</button>
+            <button className={player ? "active" : "inactive"} onClick={resetUser}><IoMdClose/></button>
         </section>
     )
 }
