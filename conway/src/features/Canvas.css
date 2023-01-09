@@ -1,0 +1,26 @@
+.canvas__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.canvas__container .canvas__togglePannel {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: transparent;
+  cursor: pointer;
+}
+.canvas__container .canvas__togglePannel:hover {
+  color: white;
+}
+.canvas__container .canvas__togglePannel--play, .canvas__container .canvas__togglePannel--pause {
+  position: absolute;
+}/*# sourceMappingURL=Canvas.css.map */

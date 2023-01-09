@@ -1,5 +1,5 @@
 const renderGrid = (arr, context) => {
-    const colors = ["purple", "goldenrod", "teal", "black"]
+    const colors = ["#90e702", "#ffe400", "#01c7d1", "black"]
     
     for (let col = 0; col < 70; col++) {
         for (let row = 0; row < 35; row++) {

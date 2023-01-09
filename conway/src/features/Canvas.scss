@@ -1,0 +1,26 @@
+.canvas__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+
+    .canvas__togglePannel {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: transparent;
+        cursor: pointer;
+
+        &:hover {
+            color: white;
+        }
+
+        &--play,
+        &--pause {
+            position: absolute;
+        }
+    }
+}

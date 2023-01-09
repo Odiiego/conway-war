@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { IoMdPause, IoMdPlay } from "react-icons/io"
 
+import "./Canvas.css"
 import buildArray from "../utils/buildArray";
 import renderGrid from "../utils/renderGrid";
 import createNextGen from "../utils/createNextGen";
@@ -68,10 +69,12 @@ const Canvas = (players) => {
     }, [playerData])
 
     return (
-        <main>
-            <div className={isPaused ? "play" : "pause"} oncontextmenu={() => false} onMouseDown={handleClick}>
-                {isPaused ? <IoMdPlay /> : <IoMdPause />}
-                <canvas ref={canvasRef} oncontextmenu={() => false} />
+        <main className={"canvas__container"}>
+            <div onMouseDown={handleClick} className="canvas__togglePannel" >
+                {isPaused ? 
+                    <IoMdPlay size={70} className="canvas__togglePannel--play" /> :
+                    <IoMdPause size={70} className="canvas__togglePannel--pause" />}
+                <canvas className="canvas" ref={canvasRef} />
             </div>
         </main>
     )

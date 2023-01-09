@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './App.css';
 import ProfileSection from './features/ProfileSection';
 import Canvas from './features/Canvas';
 
