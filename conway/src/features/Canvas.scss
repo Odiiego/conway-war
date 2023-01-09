@@ -15,12 +15,17 @@
         cursor: pointer;
 
         &:hover {
-            color: white;
+            color: rgba(255, 255, 255, .8);
         }
 
         &--play,
         &--pause {
             position: absolute;
+        }
+
+        canvas {
+            background-color: black;
+            padding: 10px;
         }
     }
 }

@@ -19,8 +19,12 @@
   cursor: pointer;
 }
 .canvas__container .canvas__togglePannel:hover {
-  color: white;
+  color: rgba(255, 255, 255, 0.8);
 }
 .canvas__container .canvas__togglePannel--play, .canvas__container .canvas__togglePannel--pause {
   position: absolute;
+}
+.canvas__container .canvas__togglePannel canvas {
+  background-color: black;
+  padding: 10px;
 }/*# sourceMappingURL=Canvas.css.map */
