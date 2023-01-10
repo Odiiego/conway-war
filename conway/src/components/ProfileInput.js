@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import { GoMarkGithub } from "react-icons/go";
 
+import "./ProfileInput.css"
+
 const ProfileInput = ({ createProfile }) => {
     const username = useRef()
     const handleCreateProfile = async (e) => {
@@ -10,9 +12,9 @@ const ProfileInput = ({ createProfile }) => {
     }
 
     return (
-        <form className="form" onSubmit={handleCreateProfile}>
-            <input className="form__input" type="text" name="ProfileInput" ref={username} required />
-            <button type="submit"><GoMarkGithub /></button>
+        <form className="profile__form" onSubmit={handleCreateProfile}>
+            <input className="profile__form__input" type="text" name="ProfileInput" ref={username} required />
+            <button className="profile__form__submit" type="submit"><GoMarkGithub className="aff" /></button>
         </form>
     )
 }

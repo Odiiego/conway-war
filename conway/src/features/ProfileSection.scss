@@ -1,0 +1,8 @@
+.profile__section {
+    .profile__reset {
+        // &--active {}
+        &--inactive {
+            display: none;
+        }
+    }
+}
