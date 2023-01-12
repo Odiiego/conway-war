@@ -1,8 +1,42 @@
 .profile__section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 720px;
+    height: 175px;
+    border: 1px solid white;
+    padding: 1rem;
+    border-radius: .2rem;
+    margin: 1rem 0;
+
     .profile__reset {
-        // &--active {}
+        &--active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            padding: 0;
+            right: 1rem;
+            top: 1rem;
+            color: white;
+            background-color: #ff0000;
+            font-weight: bold;
+            border: #c40303;
+            border-radius: .2rem;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #c40303;
+            }
+        }
+
         &--inactive {
             display: none;
+        }
+
+        &__icon {
+            size: 25px;
         }
     }
 }

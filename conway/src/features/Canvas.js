@@ -43,6 +43,11 @@ const Canvas = (players) => {
         renderGrid(boardRef.current, contextRef.current)
     }
 
+    const cancelRightButtonClick = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
     const handleClick = (e) => {
         if (e.button === 0) {
             startAnimating()
@@ -63,7 +68,6 @@ const Canvas = (players) => {
         contextRef.current = canvas.getContext('2d')
         canvas.width = 700;
         canvas.height = 350;
-        canvas.oncontextmenu = function (e) { e.preventDefault(); e.stopPropagation(); }
 
         renderGrid(boardRef.current, contextRef.current)
     }, [playerData])
@@ -71,10 +75,10 @@ const Canvas = (players) => {
     return (
         <main className={"canvas__container"}>
             <div onMouseDown={handleClick} className="canvas__togglePannel" >
-                {isPaused ? 
-                    <IoMdPlay size={70} className="canvas__togglePannel--play" /> :
-                    <IoMdPause size={70} className="canvas__togglePannel--pause" />}
-                <canvas className="canvas" ref={canvasRef} />
+                {isPaused ?
+                    <IoMdPlay size={70} onContextMenu={cancelRightButtonClick} className="canvas__togglePannel--play" /> :
+                    <IoMdPause size={70} onContextMenu={cancelRightButtonClick} className="canvas__togglePannel--pause" />}
+                <canvas className="canvas" onContextMenu={cancelRightButtonClick} ref={canvasRef} />
             </div>
         </main>
     )

@@ -1,0 +1,25 @@
+.profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &__image {
+        width: 125px;
+        margin-right: 1rem;
+        border: 1px solid white;
+        border-radius: .2rem;
+    }
+    a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        margin: 0 1rem;
+    }
+    &__description {
+        margin-left: 1rem;
+        width: 43ch;
+        color: #BBBBBB;
+    }
+}

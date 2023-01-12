@@ -1,0 +1,25 @@
+.profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.profile__image {
+  width: 125px;
+  margin-right: 1rem;
+  border: 1px solid white;
+  border-radius: 0.2rem;
+}
+.profile a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  margin: 0 1rem;
+}
+.profile__description {
+  margin-left: 1rem;
+  width: 43ch;
+  color: #BBBBBB;
+}/*# sourceMappingURL=Profile.css.map */

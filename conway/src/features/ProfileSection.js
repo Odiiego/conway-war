@@ -24,7 +24,7 @@ const ProfileSection = (props) => {
     return (
         <section className="profile__section">
             {player ? <Profile player={player} /> : <ProfileInput createProfile={createProfile} inputId={props.inputId} />}
-            <button className={player ? "profile__reset--active" : "profile__reset--inactive"} onClick={resetUser}><IoMdClose /></button>
+            <button className={player ? "profile__reset--active" : "profile__reset--inactive"} onClick={resetUser}><IoMdClose size={28} /></button>
         </section>
     )
 }
