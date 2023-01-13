@@ -14,7 +14,7 @@ const ProfileInput = ({ createProfile }) => {
     return (
         <form className="profile__form" onSubmit={handleCreateProfile}>
             <input className="profile__form__input" type="text" name="ProfileInput" ref={username} required />
-            <button className="profile__form__submit" type="submit"><GoMarkGithub /></button>
+            <button className="profile__form__submit" type="submit"><GoMarkGithub size={26} /></button>
         </form>
     )
 }

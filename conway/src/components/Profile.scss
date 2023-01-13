@@ -2,12 +2,14 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+
     &__image {
-        width: 125px;
+        width: 100px;
         margin-right: 1rem;
-        border: 1px solid white;
+        border: 2px solid white;
         border-radius: .2rem;
     }
+
     a {
         display: flex;
         flex-direction: column;
@@ -17,6 +19,15 @@
         color: white;
         margin: 0 1rem;
     }
+
+    &__name {
+        text-align: center;
+    }
+
+    &__login {
+        color: #CCCCCC;
+    }
+
     &__description {
         margin-left: 1rem;
         width: 43ch;

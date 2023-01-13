@@ -1,1 +1,28 @@
-/*# sourceMappingURL=ProfileInput.css.map */
+.profile__form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile__form__input {
+  display: flex;
+  padding: 0.1rem 0.5rem;
+  height: 28px;
+  width: 40ch;
+  background-color: #101010;
+  border-radius: 0.2rem 0 0 0.2rem;
+  border: 1px solid white;
+  color: white;
+}
+.profile__form__input:focus {
+  outline: none;
+}
+.profile__form__submit {
+  display: flex;
+  padding: 1px 1px 1px 0;
+  color: #101010;
+  background-color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 0 0.2rem 0.2rem 0;
+  cursor: pointer;
+}/*# sourceMappingURL=ProfileInput.css.map */

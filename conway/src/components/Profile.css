@@ -4,9 +4,9 @@
   align-items: center;
 }
 .profile__image {
-  width: 125px;
+  width: 100px;
   margin-right: 1rem;
-  border: 1px solid white;
+  border: 2px solid white;
   border-radius: 0.2rem;
 }
 .profile a {
@@ -17,6 +17,12 @@
   text-decoration: none;
   color: white;
   margin: 0 1rem;
+}
+.profile__name {
+  text-align: center;
+}
+.profile__login {
+  color: #CCCCCC;
 }
 .profile__description {
   margin-left: 1rem;

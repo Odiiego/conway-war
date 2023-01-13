@@ -1,0 +1,31 @@
+.profile__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__input {
+        display: flex;
+        padding: .1rem .5rem;
+        height: 28px;
+        width: 40ch;
+        background-color: #101010;
+        border-radius: .2rem 0 0 .2rem;
+        border: 1px solid white;
+        color: white;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__submit {
+        display: flex;
+        padding: 1px 1px 1px 0;
+        color: #101010;
+        background-color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 0 .2rem .2rem 0;
+        cursor: pointer;
+    }
+}
