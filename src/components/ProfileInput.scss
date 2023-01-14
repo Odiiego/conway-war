@@ -8,9 +8,9 @@
         padding: .1rem .5rem;
         height: 28px;
         width: 40ch;
-        background-color: #101010;
+        background-color: transparent;
         border-radius: .2rem 0 0 .2rem;
-        border: 1px solid white;
+        border: 3px solid white;
         color: white;
 
         &:focus {
@@ -20,8 +20,11 @@
 
     &__submit {
         display: flex;
-        padding: 1px 1px 1px 0;
+        align-items: center;
+        justify-content: center;
         color: #101010;
+        height: 28px;
+        padding: 0 1rem;
         background-color: white;
         font-weight: bold;
         border: none;

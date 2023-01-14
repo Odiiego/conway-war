@@ -8,7 +8,9 @@
 }
 
 body {
-    background-color: #101010;
+    background: #00c6ff;
+    background: -webkit-linear-gradient(to left, #0072ff, #00c6ff);
+    background: linear-gradient(to left, #0072ff, #00c6ff);
     display: flex;
     height: 100vh;
     justify-content: center;
