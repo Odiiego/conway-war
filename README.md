@@ -1,6 +1,3 @@
-![Badge](https://img.shields.io/github/license/DiegoPaula/Game-of-Life)
-![Badge](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FDiegoPa49269521)
-
 # conway-war
 Uma versão multiplayer do Jogo da Vida de Conway, onde suas contribuições no Github enfrentam outro jogador em partidas hipnóticas com resultados inesperados.
 
